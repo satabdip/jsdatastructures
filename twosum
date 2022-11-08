@@ -1,13 +1,17 @@
-const twoSum = (array, goal) => {
-  let numberMap = new Map();
+const twoSum=(arr,sum)=>{
+    const map= new Map();
+    for(let i=0;i<arr.length;i++){
+        
+        if(map.has(sum-arr[i])){
 
-  for (let index = 0; index < array.length; index++) {
-    el = array[index];
-
-    if (numberMap.has(goal - el)) 
-      return [index, numberMap.get(goal - el)];
-    else numberMap.set(el, index);
-  }
-
-  return [];
+            return [i,map.get(sum-arr[i])];
+            
+        }else{
+            map.set(arr[i],i)
+        }
+    }
 }
+
+var result =twoSum([5,10,5,10],15)
+
+console.log("result is",result)
